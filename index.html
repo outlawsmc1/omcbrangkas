@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="id">
+<html lang="id" class="h-full">
  <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aplikasi Kasir Toko - Login</title>
+  <title>OUTLAWS 1% MC</title>
   <style>
     * {
       margin: 0;
@@ -11,12 +11,15 @@
       box-sizing: border-box;
     }
 
+    html, body {
+      height: 100%;
+      box-sizing: border-box;
+    }
+
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      min-height: 100vh;
       padding: 20px;
-      box-sizing: border-box;
     }
 
     .container {
@@ -850,26 +853,12 @@
  <body><!-- LOGIN PAGE -->
   <div id="loginPage" class="login-container">
    <div class="login-box">
-    <div class="login-icon">
-     🔐
-    </div>
-    <h1>Aplikasi Kasir Toko</h1>
+    
+    <h1>OUTLAWS 1% MC</h1>
     <p>Silakan pilih role dan login</p>
-    <div class="demo-users">
-     <h3>📋 Demo Login Credentials:</h3>
-     <div class="demo-user-list">
-      <div class="demo-user-item">
-       <div><strong>👨‍💼 Admin</strong> <span class="badge badge-danger">Full Access</span>
-       </div><small>Username: <strong>admin</strong> | Password: <strong>admin123</strong></small>
-      </div>
-      <div class="demo-user-item">
-       <div><strong>👤 Member (Kasir)</strong> <span class="badge badge-primary">Kasir Only</span>
-       </div><small>Username: <strong>kasir</strong> | Password: <strong>kasir123</strong></small>
-      </div>
-     </div>
-    </div>
+    
     <form id="loginForm" onsubmit="handleLogin(event)">
-     <div class="role-selector"><label class="role-card active" onclick="selectRole('admin')"> <input type="radio" name="role" value="admin" checked style="display: none;"> <h3>Admin</h3><p>Akses Penuh</p></label> <label class="role-card" onclick="selectRole('member')"> <input type="radio" name="role" value="member" style="display: none;"> <h3>Member</h3><p>Kasir Saja</p></label>
+     <div class="role-selector"><label class="role-card active" onclick="selectRole('admin')"> <input type="radio" name="role" value="admin" checked style="display: none;"> <h3>Admin</h3></label> <label class="role-card" onclick="selectRole('member')"> <input type="radio" name="role" value="member" style="display: none;"> <h3>Member</h3></label>
      </div>
      <div class="form-group"><label for="username">Username</label> <input type="text" id="username" class="form-control" placeholder="Masukkan username" required>
      </div>
@@ -882,13 +871,13 @@
    <div class="container">
     <div class="header">
      <div class="header-left">
-      <h1>🏪 Aplikasi Kasir Toko</h1>
-      <p>Sistem Point of Sale Modern &amp; Praktis</p>
+      <h1>OUTLAWS BRANGKAS</h1>
+      <p>NO RULES, ONE BLOOD, JUST FOR FUN</p>
      </div>
      <div class="header-right">
       <div class="user-info">
        <div class="user-avatar" id="userAvatar">
-        ������
+        👤
        </div>
        <div class="user-details">
         <h3 id="userName">User</h3>
@@ -897,20 +886,20 @@
       </div>
      </div>
     </div>
-    <div class="nav-tabs"><button class="nav-tab active" onclick="switchTab('kasir')">💰 Kasir</button> <button class="nav-tab" id="tabProduk" onclick="switchTab('produk')">📦 Produk</button> <button class="nav-tab" id="tabKategori" onclick="switchTab('kategori')">🏷️ Kategori</button> <button class="nav-tab" id="tabTransaksi" onclick="switchTab('transaksi')">📊 Transaksi</button> <button class="nav-tab" id="tabPengaturan" onclick="switchTab('pengaturan')">⚙️ Pengaturan</button> <button class="nav-tab" id="tabUsers" onclick="switchTab('users')">👥 Users</button>
+    <div class="nav-tabs"><button class="nav-tab active" onclick="switchTab('kasir')">💰 Kasir</button> <button class="nav-tab" id="tabProduk" onclick="switchTab('produk')">📦 Barang</button> <button class="nav-tab" id="tabKategori" onclick="switchTab('kategori')">🏷️ Kategori</button> <button class="nav-tab" id="tabTransaksi" onclick="switchTab('transaksi')">📊 Transaksi</button> <button class="nav-tab" id="tabPengaturan" onclick="switchTab('pengaturan')">⚙️ Pengaturan</button> <button class="nav-tab" id="tabUsers" onclick="switchTab('users')">👥 Users</button>
     </div><!-- TAB KASIR -->
     <div id="tab-kasir" class="tab-content active">
      <div class="grid grid-2">
       <div>
-       <h2 style="margin-bottom: 20px; color: #495057;">Daftar Produk</h2>
-       <div class="search-bar"><input type="text" id="searchProduct" placeholder="🔍 Cari produk..." oninput="filterProducts()">
+       <h2 style="margin-bottom: 20px; color: #495057;">Daftar Barang</h2>
+       <div class="search-bar"><input type="text" id="searchProduct" placeholder="🔍 Cari barang..." oninput="filterProducts()">
        </div>
        <div class="form-group"><label>Filter Kategori</label> <select id="categoryFilter" class="form-control" onchange="filterProducts()"> <option value="">Semua Kategori</option> </select>
        </div>
        <div id="productList" class="grid grid-3">
         <div class="loading">
          <div class="spinner"></div>
-         <p>Memuat produk...</p>
+         <p>Memuat barang...</p>
         </div>
        </div>
       </div>
@@ -921,7 +910,7 @@
          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
          </svg>
          <h3>Keranjang Kosong</h3>
-         <p>Pilih produk untuk memulai transaksi</p>
+         <p>Pilih barang untuk memulai transaksi</p>
         </div>
        </div>
        <div id="cartSummary" style="display: none;">
@@ -933,7 +922,7 @@
         </div>
         <div class="form-group" style="margin-top: 20px;"><label>Nama Pelanggan <span style="color: red;">*</span></label> <input type="text" id="customerName" class="form-control" placeholder="Nama pelanggan (wajib diisi)" required>
         </div>
-        <div class="form-group"><label>Type Pembayaran <span style="color: red;">*</span></label> <select id="paymentType" class="form-control" required> <option value="CASH">CASH</option> <option value="PAYLATER">PAYLATER</option> </select>
+        <div class="form-group"><label>Type Pembayaran <span style="color: red;">*</span></label> <select id="paymentType" class="form-control" required> <option value="CASH">💵 CASH</option>  </select>
         </div>
         <div class="form-group"><label style="display: flex; justify-content: space-between; align-items: center;"> <span>Jumlah Bayar</span> <label style="display: flex; align-items: center; gap: 8px; font-weight: normal; cursor: pointer;"> <input type="checkbox" id="exactPayment" onchange="toggleExactPayment()" style="width: auto; cursor: pointer;"> <span>Uang Pas</span> </label> </label> <input type="number" id="paymentAmount" class="form-control" placeholder="0" oninput="calculateChange()">
         </div>
@@ -947,24 +936,24 @@
     </div><!-- TAB PRODUK -->
     <div id="tab-produk" class="tab-content">
      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-      <h2 style="color: #495057;">Manajemen Produk</h2><button class="btn btn-primary" onclick="showAddProductModal()">➕ Tambah Produk</button>
+      <h2 style="color: #495057;">Manajemen Barang</h2><button class="btn btn-primary" onclick="showAddProductModal()">➕ Tambah Barang</button>
      </div>
      <div class="stats-grid" id="productStats">
       <div class="stat-card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
        <h3 id="statTotalProducts">0</h3>
-       <p>Total Produk</p>
+       <p>Total Barang</p>
       </div>
       <div class="stat-card" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
        <h3 id="statTotalAssets">Rp 0</h3>
        <p>Total Aset (Harga × Stok)</p>
       </div>
      </div>
-     <div class="search-bar"><input type="text" id="searchProductTable" placeholder="🔍 Cari produk (nama, kode, kategori)..." oninput="filterProductTable()">
+     <div class="search-bar"><input type="text" id="searchProductTable" placeholder="🔍 Cari barang (nama, kode, kategori)..." oninput="filterProductTable()">
      </div>
      <div id="productTable">
       <div class="loading">
        <div class="spinner"></div>
-       <p>Memuat data produk...</p>
+       <p>Memuat data barang...</p>
       </div>
      </div>
     </div><!-- TAB KATEGORI -->
@@ -1001,28 +990,10 @@
        <p>Memuat data transaksi...</p>
       </div>
      </div>
-    </div><!-- TAB PENGATURAN (Admin Only) -->
-    <div id="tab-pengaturan" class="tab-content">
-     <h2 style="margin-bottom: 20px; color: #495057;">Pengaturan Toko</h2>
-     <div class="card" style="max-width: 800px; margin: 0 auto;">
-      <form id="settingsForm" onsubmit="saveSettings(event)">
-       <div class="form-group"><label>Nama Toko</label> <input type="text" id="settingStoreName" class="form-control" placeholder="Nama Toko Anda" required>
-       </div>
-       <div class="form-group"><label>Alamat</label> <textarea id="settingStoreAddress" class="form-control" rows="3" placeholder="Alamat lengkap toko" required></textarea>
-       </div>
-       <div class="form-group"><label>Telepon</label> <input type="tel" id="settingStorePhone" class="form-control" placeholder="08xx-xxxx-xxxx" required>
-       </div>
-       <div class="form-group"><label>Email</label> <input type="email" id="settingStoreEmail" class="form-control" placeholder="email@toko.com">
-       </div>
-       <div class="form-group"><label>Footer Struk</label> <textarea id="settingReceiptFooter" class="form-control" rows="2" placeholder="Terima kasih atas kunjungan Anda"></textarea>
-       </div><button type="submit" class="btn btn-success" style="width: 100%; padding: 15px;"> 💾 Simpan Pengaturan </button>
-      </form>
-     </div>
+    
     </div><!-- TAB USERS (Admin Only) -->
     <div id="tab-users" class="tab-content">
-     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-      <h2 style="color: #495057;">Manajemen User</h2><button class="btn btn-primary" onclick="showAddUserModal()">➕ Tambah User</button>
-     </div>
+     
      <div id="userTable">
       <div class="loading">
        <div class="spinner"></div>
@@ -1035,12 +1006,12 @@
   <div id="productModal" class="modal">
    <div class="modal-content">
     <div class="modal-header">
-     <h2 id="productModalTitle">Tambah Produk</h2><button class="close-btn" onclick="closeModal('productModal')">×</button>
+     <h2 id="productModalTitle">Tambah Barang</h2><button class="close-btn" onclick="closeModal('productModal')">×</button>
     </div>
     <form id="productForm" onsubmit="saveProduct(event)"><input type="hidden" id="productId">
-     <div class="form-group"><label>Kode Produk</label> <input type="text" id="productCode" class="form-control" required>
+     <div class="form-group"><label>Kode Barang</label> <input type="text" id="productCode" class="form-control" required>
      </div>
-     <div class="form-group"><label>Nama Produk</label> <input type="text" id="productName" class="form-control" required>
+     <div class="form-group"><label>Nama Barang</label> <input type="text" id="productName" class="form-control" required>
      </div>
      <div class="form-group"><label>Kategori</label> <select id="productCategory" class="form-control" required> <option value="">Pilih kategori...</option> </select>
      </div>
@@ -1109,8 +1080,8 @@
 
     // Initialize users hardcoded
     users = [
-      { id: 'user-1', fullName: 'Administrator', username: 'admin', password: 'admin123', role: 'admin' },
-      { id: 'user-2', fullName: 'Kasir 1', username: 'kasir', password: 'kasir123', role: 'member' }
+      { id: 'user-1', fullName: 'Admin OMC', username: 'admin', password: 'outlawsmc', role: 'admin' },
+      { id: 'user-2', fullName: 'Member OMC', username: 'member', password: 'member123', role: 'member' }
     ];
 
     // Initialize
@@ -1220,7 +1191,7 @@
       document.getElementById('mainApp').style.display = 'block';
 
       document.getElementById('userName').textContent = currentUser.fullName;
-      document.getElementById('userRole').textContent = currentUser.role === 'admin' ? 'Administrator' : 'Member (Kasir)';
+      document.getElementById('userRole').textContent = currentUser.role === 'admin' ? 'Administrator' : 'Member';
       document.getElementById('userAvatar').textContent = currentUser.role === 'admin' ? '👨‍💼' : '👤';
 
       setupRoleAccess();
@@ -1354,8 +1325,8 @@
       if (products.length === 0) {
         container.innerHTML = `
           <div class="empty-state">
-            <h3>Belum ada produk</h3>
-            <p>Produk akan muncul di sini</p>
+            <h3>Belum ada barang</h3>
+            <p>Barang akan muncul di sini</p>
           </div>
         `;
         return;
@@ -1403,7 +1374,7 @@
     function addToCart(productId) {
       const product = products.find(p => p.id === productId);
       if (!product || product.stock <= 0) {
-        showAlert('Stok produk habis!', 'danger');
+        showAlert('Stok barang habis!', 'danger');
         return;
       }
 
@@ -1440,7 +1411,7 @@
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
             </svg>
             <h3>Keranjang Kosong</h3>
-            <p>Pilih produk untuk memulai transaksi</p>
+            <p>Pilih barang untuk memulai transaksi</p>
           </div>
         `;
         summaryContainer.style.display = 'none';
@@ -1614,6 +1585,7 @@
         change: change
       };
 
+      console.log('Transaction Type:', paymentType);
       await apiPost('addTransaction', transaction);
 
       showReceipt(transaction);
@@ -1645,6 +1617,7 @@
             <p><strong>Tanggal:</strong> ${transaction.date} ${transaction.time}</p>
             <p><strong>Kasir:</strong> ${transaction.cashier}</p>
             <p><strong>Pelanggan:</strong> ${transaction.customerName}</p>
+            <p><strong>Type:</strong> ${transaction.type === 'PAYLATER' ? '🕐 PAYLATER' : '💵 CASH'}</p>
           </div>
           <div class="receipt-items">
             <div style="border-bottom: 2px dashed #000; padding-bottom: 5px; margin-bottom: 10px;">
@@ -1699,7 +1672,7 @@
       updateProductStats();
       
       if (displayProducts.length === 0) {
-        container.innerHTML = `<div class="empty-state"><h3>Tidak ada produk ditemukan</h3></div>`;
+        container.innerHTML = `<div class="empty-state"><h3>Tidak ada barang ditemukan</h3></div>`;
         return;
       }
 
@@ -1709,7 +1682,7 @@
             <thead style="position: sticky; top: 0; background: #f8f9fa; z-index: 10;">
               <tr>
                 <th>Kode</th>
-                <th>Nama Produk</th>
+                <th>Nama Barang</th>
                 <th>Kategori</th>
                 <th>Harga</th>
                 <th>Stok</th>
@@ -1756,7 +1729,7 @@
     }
 
     function showAddProductModal() {
-      document.getElementById('productModalTitle').textContent = 'Tambah Produk';
+      document.getElementById('productModalTitle').textContent = 'Tambah Barang';
       document.getElementById('productForm').reset();
       document.getElementById('productId').value = '';
       openModal('productModal');
@@ -1766,7 +1739,7 @@
       const product = products.find(p => p.id === id);
       if (!product) return;
 
-      document.getElementById('productModalTitle').textContent = 'Edit Produk';
+      document.getElementById('productModalTitle').textContent = 'Edit Barang';
       document.getElementById('productId').value = product.id;
       document.getElementById('productCode').value = product.code;
       document.getElementById('productName').value = product.name;
@@ -1794,7 +1767,7 @@
       await apiPost(action, product);
 
       closeModal('productModal');
-      showAlert(`Produk berhasil ${id ? 'diupdate' : 'ditambahkan'}!`, 'success');
+      showAlert(`Barang berhasil ${id ? 'diupdate' : 'ditambahkan'}!`, 'success');
 
       setTimeout(() => loadProducts(), 500);
     }
@@ -1817,8 +1790,8 @@
       
       deleteConfirm.innerHTML = `
         <div style="font-size: 3em; margin-bottom: 15px;">🗑️</div>
-        <h3 style="color: #495057; margin-bottom: 10px;">Hapus Produk?</h3>
-        <p style="color: #6c757d; margin-bottom: 20px;">Produk ini akan dihapus permanen</p>
+        <h3 style="color: #495057; margin-bottom: 10px;">Hapus Barang?</h3>
+        <p style="color: #6c757d; margin-bottom: 20px;">Barang ini akan dihapus permanen</p>
         <div style="display: flex; gap: 10px; justify-content: center;">
           <button onclick="confirmDeleteProduct('${id}')" class="btn btn-danger">Ya, Hapus</button>
           <button onclick="this.closest('div').remove()" class="btn btn-secondary">Batal</button>
@@ -1834,7 +1807,7 @@
       const confirmDiv = document.querySelector('div[style*="position: fixed"]');
       if (confirmDiv) confirmDiv.remove();
       
-      showAlert('Produk berhasil dihapus!', 'success');
+      showAlert('Barang berhasil dihapus!', 'success');
       
       setTimeout(() => loadProducts(), 500);
     }
@@ -1961,15 +1934,21 @@
       const displayTransactions = transactions;
       const today = new Date().toISOString().split('T')[0];
       const todayTransactions = displayTransactions.filter(t => t.date === today);
-      const totalRevenue = displayTransactions.reduce((sum, t) => sum + Number(t.total), 0);
       
       // Hitung PAID dan UNPAID dengan benar
-      const paidCount = displayTransactions.filter(t => t.status && t.status.toUpperCase() === 'PAID').length;
-      const unpaidCount = displayTransactions.filter(t => !t.status || t.status === '' || t.status.toUpperCase() === 'UNPAID').length;
+      const paidTransactions = displayTransactions.filter(t => t.status && t.status.toUpperCase() === 'PAID');
+      const unpaidTransactions = displayTransactions.filter(t => !t.status || t.status === '' || t.status.toUpperCase() === 'UNPAID');
+      
+      const paidCount = paidTransactions.length;
+      const unpaidCount = unpaidTransactions.length;
+      
+      // Total pendapatan HANYA dari transaksi yang PAID
+      const totalRevenue = paidTransactions.reduce((sum, t) => sum + Number(t.total), 0);
 
       console.log('Total Transactions:', displayTransactions.length);
       console.log('PAID Count:', paidCount);
       console.log('UNPAID Count:', unpaidCount);
+      console.log('Total Revenue (PAID only):', totalRevenue);
       console.log('Transaction Status Details:', displayTransactions.map(t => ({ id: t.id, status: t.status, customer: t.customerName })));
 
       document.getElementById('transactionStats').innerHTML = `
@@ -1979,7 +1958,7 @@
         </div>
         <div class="stat-card">
           <h3>Rp ${totalRevenue.toLocaleString('id-ID')}</h3>
-          <p>Total Pendapatan</p>
+          <p>Total Pendapatan (PAID)</p>
         </div>
         <div class="stat-card" style="background: linear-gradient(135deg, #28a745 0%, #20c997 100%);">
           <h3>${paidCount}</h3>
@@ -2036,8 +2015,8 @@
                   <td>${t.customerName}</td>
                   <td><strong>Rp ${Number(t.total).toLocaleString('id-ID')}</strong></td>
                   <td>
-                    <span class="badge ${t.type === 'CASH' ? 'badge-success' : 'badge-warning'}">
-                      ${t.type || 'CASH'}
+                    <span class="badge ${t.type === 'PAYLATER' ? 'badge-warning' : 'badge-success'}">
+                      ${t.type === 'PAYLATER' ? '🕐 PAYLATER' : '💵 CASH'}
                     </span>
                   </td>
                   <td id="status-${t.id}">
@@ -2215,7 +2194,6 @@
               <th>Nama Lengkap</th>
               <th>Username</th>
               <th>Role</th>
-              <th>Aksi</th>
             </tr>
           </thead>
           <tbody>
@@ -2227,10 +2205,6 @@
                   <span class="badge ${u.role === 'admin' ? 'badge-danger' : 'badge-primary'}">
                     ${u.role === 'admin' ? 'Admin' : 'Member'}
                   </span>
-                </td>
-                <td>
-                  <button class="btn btn-primary" style="padding: 6px 12px; font-size: 0.9em;" onclick="editUser('${u.id}')">✏️</button>
-                  <button class="btn btn-danger" style="padding: 6px 12px; font-size: 0.9em;" onclick="deleteUser('${u.id}')">🗑️</button>
                 </td>
               </tr>
             `).join('')}
@@ -2379,5 +2353,5 @@
       }
     }
   </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9c6ff613938ca045',t:'MTc2OTkzMzMxMC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9c702d4bc2a58b16',t:'MTc2OTkzNTU3Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
