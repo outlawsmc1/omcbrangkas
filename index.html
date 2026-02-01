@@ -3,7 +3,7 @@
  <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>OUTLAWS BRANGKAS</title>
+  <title>Aplikasi Kasir Toko - Login</title>
   <style>
     * {
       margin: 0;
@@ -756,6 +756,7 @@
     .demo-users h3 {
       color: #495057;
       margin-bottom: 15px;
+      font-size: 1.1em;
     }
 
     .demo-user-list {
@@ -768,17 +769,25 @@
       padding: 12px 15px;
       border-radius: 8px;
       border: 2px solid #e9ecef;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
     }
 
     .demo-user-item strong {
       color: #495057;
+      font-size: 1em;
+      display: block;
+      margin-bottom: 5px;
     }
 
     .demo-user-item .badge {
-      margin-left: 10px;
+      margin-left: 5px;
+    }
+
+    .demo-user-item small {
+      display: block;
+      margin-top: 5px;
+      color: #6c757d;
+      font-size: 0.85em;
+      word-break: break-all;
     }
 
     @media print {
@@ -841,12 +850,26 @@
  <body><!-- LOGIN PAGE -->
   <div id="loginPage" class="login-container">
    <div class="login-box">
-    
-    <h1>OUTLAWS 1% MC</h1>
+    <div class="login-icon">
+     🔐
+    </div>
+    <h1>Aplikasi Kasir Toko</h1>
     <p>Silakan pilih role dan login</p>
-    
+    <div class="demo-users">
+     <h3>📋 Demo Login Credentials:</h3>
+     <div class="demo-user-list">
+      <div class="demo-user-item">
+       <div><strong>👨‍💼 Admin</strong> <span class="badge badge-danger">Full Access</span>
+       </div><small>Username: <strong>admin</strong> | Password: <strong>admin123</strong></small>
+      </div>
+      <div class="demo-user-item">
+       <div><strong>👤 Member (Kasir)</strong> <span class="badge badge-primary">Kasir Only</span>
+       </div><small>Username: <strong>kasir</strong> | Password: <strong>kasir123</strong></small>
+      </div>
+     </div>
+    </div>
     <form id="loginForm" onsubmit="handleLogin(event)">
-     <div class="role-selector"><label class="role-card active" onclick="selectRole('admin')"> <input type="radio" name="role" value="admin" checked style="display: none;"> <h3>Admin</h3></label> <label class="role-card" onclick="selectRole('member')"> <input type="radio" name="role" value="member" style="display: none;"> <h3>Member</h3></label>
+     <div class="role-selector"><label class="role-card active" onclick="selectRole('admin')"> <input type="radio" name="role" value="admin" checked style="display: none;"> <h3>Admin</h3><p>Akses Penuh</p></label> <label class="role-card" onclick="selectRole('member')"> <input type="radio" name="role" value="member" style="display: none;"> <h3>Member</h3><p>Kasir Saja</p></label>
      </div>
      <div class="form-group"><label for="username">Username</label> <input type="text" id="username" class="form-control" placeholder="Masukkan username" required>
      </div>
@@ -859,13 +882,13 @@
    <div class="container">
     <div class="header">
      <div class="header-left">
-      <h1>OUTLAWS BRANGKAS</h1>
-      <p>NO RULES, ONE BLOOD, JUST FOR FUN</p>
+      <h1>🏪 Aplikasi Kasir Toko</h1>
+      <p>Sistem Point of Sale Modern &amp; Praktis</p>
      </div>
      <div class="header-right">
       <div class="user-info">
        <div class="user-avatar" id="userAvatar">
-        👤
+        ������
        </div>
        <div class="user-details">
         <h3 id="userName">User</h3>
@@ -874,20 +897,20 @@
       </div>
      </div>
     </div>
-    <div class="nav-tabs"><button class="nav-tab active" onclick="switchTab('kasir')">💰 Kasir</button> <button class="nav-tab" id="tabProduk" onclick="switchTab('produk')">📦 Barang</button> <button class="nav-tab" id="tabKategori" onclick="switchTab('kategori')">🏷️ Kategori</button> <button class="nav-tab" id="tabTransaksi" onclick="switchTab('transaksi')">📊 Transaksi</button> <button class="nav-tab" id="tabPengaturan" onclick="switchTab('pengaturan')">⚙️ Pengaturan</button> <button class="nav-tab" id="tabUsers" onclick="switchTab('users')">👥 Users</button>
+    <div class="nav-tabs"><button class="nav-tab active" onclick="switchTab('kasir')">💰 Kasir</button> <button class="nav-tab" id="tabProduk" onclick="switchTab('produk')">📦 Produk</button> <button class="nav-tab" id="tabKategori" onclick="switchTab('kategori')">🏷️ Kategori</button> <button class="nav-tab" id="tabTransaksi" onclick="switchTab('transaksi')">📊 Transaksi</button> <button class="nav-tab" id="tabPengaturan" onclick="switchTab('pengaturan')">⚙️ Pengaturan</button> <button class="nav-tab" id="tabUsers" onclick="switchTab('users')">👥 Users</button>
     </div><!-- TAB KASIR -->
     <div id="tab-kasir" class="tab-content active">
      <div class="grid grid-2">
       <div>
-       <h2 style="margin-bottom: 20px; color: #495057;">Daftar Barang</h2>
-       <div class="search-bar"><input type="text" id="searchProduct" placeholder="🔍 Cari Barang..." oninput="filterProducts()">
+       <h2 style="margin-bottom: 20px; color: #495057;">Daftar Produk</h2>
+       <div class="search-bar"><input type="text" id="searchProduct" placeholder="🔍 Cari produk..." oninput="filterProducts()">
        </div>
        <div class="form-group"><label>Filter Kategori</label> <select id="categoryFilter" class="form-control" onchange="filterProducts()"> <option value="">Semua Kategori</option> </select>
        </div>
        <div id="productList" class="grid grid-3">
         <div class="loading">
          <div class="spinner"></div>
-         <p>Memuat Barang...</p>
+         <p>Memuat produk...</p>
         </div>
        </div>
       </div>
@@ -898,7 +921,7 @@
          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
          </svg>
          <h3>Keranjang Kosong</h3>
-         <p>Pilih barang untuk memulai transaksi</p>
+         <p>Pilih produk untuk memulai transaksi</p>
         </div>
        </div>
        <div id="cartSummary" style="display: none;">
@@ -924,24 +947,24 @@
     </div><!-- TAB PRODUK -->
     <div id="tab-produk" class="tab-content">
      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-      <h2 style="color: #495057;">Manajemen Barang</h2><button class="btn btn-primary" onclick="showAddProductModal()">➕ Tambah Barang</button>
+      <h2 style="color: #495057;">Manajemen Produk</h2><button class="btn btn-primary" onclick="showAddProductModal()">➕ Tambah Produk</button>
      </div>
      <div class="stats-grid" id="productStats">
       <div class="stat-card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
        <h3 id="statTotalProducts">0</h3>
-       <p>Total Barang</p>
+       <p>Total Produk</p>
       </div>
       <div class="stat-card" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
        <h3 id="statTotalAssets">Rp 0</h3>
        <p>Total Aset (Harga × Stok)</p>
       </div>
      </div>
-     <div class="search-bar"><input type="text" id="searchProductTable" placeholder="🔍 Cari Barang (nama, kode, kategori)..." oninput="filterProductTable()">
+     <div class="search-bar"><input type="text" id="searchProductTable" placeholder="🔍 Cari produk (nama, kode, kategori)..." oninput="filterProductTable()">
      </div>
      <div id="productTable">
       <div class="loading">
        <div class="spinner"></div>
-       <p>Memuat data Barang...</p>
+       <p>Memuat data produk...</p>
       </div>
      </div>
     </div><!-- TAB KATEGORI -->
@@ -978,7 +1001,23 @@
        <p>Memuat data transaksi...</p>
       </div>
      </div>
-    
+    </div><!-- TAB PENGATURAN (Admin Only) -->
+    <div id="tab-pengaturan" class="tab-content">
+     <h2 style="margin-bottom: 20px; color: #495057;">Pengaturan Toko</h2>
+     <div class="card" style="max-width: 800px; margin: 0 auto;">
+      <form id="settingsForm" onsubmit="saveSettings(event)">
+       <div class="form-group"><label>Nama Toko</label> <input type="text" id="settingStoreName" class="form-control" placeholder="Nama Toko Anda" required>
+       </div>
+       <div class="form-group"><label>Alamat</label> <textarea id="settingStoreAddress" class="form-control" rows="3" placeholder="Alamat lengkap toko" required></textarea>
+       </div>
+       <div class="form-group"><label>Telepon</label> <input type="tel" id="settingStorePhone" class="form-control" placeholder="08xx-xxxx-xxxx" required>
+       </div>
+       <div class="form-group"><label>Email</label> <input type="email" id="settingStoreEmail" class="form-control" placeholder="email@toko.com">
+       </div>
+       <div class="form-group"><label>Footer Struk</label> <textarea id="settingReceiptFooter" class="form-control" rows="2" placeholder="Terima kasih atas kunjungan Anda"></textarea>
+       </div><button type="submit" class="btn btn-success" style="width: 100%; padding: 15px;"> 💾 Simpan Pengaturan </button>
+      </form>
+     </div>
     </div><!-- TAB USERS (Admin Only) -->
     <div id="tab-users" class="tab-content">
      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
@@ -996,12 +1035,12 @@
   <div id="productModal" class="modal">
    <div class="modal-content">
     <div class="modal-header">
-     <h2 id="productModalTitle">Tambah Barang</h2><button class="close-btn" onclick="closeModal('productModal')">×</button>
+     <h2 id="productModalTitle">Tambah Produk</h2><button class="close-btn" onclick="closeModal('productModal')">×</button>
     </div>
     <form id="productForm" onsubmit="saveProduct(event)"><input type="hidden" id="productId">
-     <div class="form-group"><label>Kode Barang</label> <input type="text" id="productCode" class="form-control" required>
+     <div class="form-group"><label>Kode Produk</label> <input type="text" id="productCode" class="form-control" required>
      </div>
-     <div class="form-group"><label>Nama Barang</label> <input type="text" id="productName" class="form-control" required>
+     <div class="form-group"><label>Nama Produk</label> <input type="text" id="productName" class="form-control" required>
      </div>
      <div class="form-group"><label>Kategori</label> <select id="productCategory" class="form-control" required> <option value="">Pilih kategori...</option> </select>
      </div>
@@ -1039,7 +1078,7 @@
      </div>
      <div class="form-group"><label>Password</label> <input type="password" id="userPassword" class="form-control" required>
      </div>
-     <div class="form-group"><label>Role</label> <select id="userRoleSelect" class="form-control" required> <option value="member">Member</option> <option value="admin">Admin (Full Access)</option> </select>
+     <div class="form-group"><label>Role</label> <select id="userRoleSelect" class="form-control" required> <option value="member">Member (Kasir)</option> <option value="admin">Admin (Full Access)</option> </select>
      </div>
      <div class="action-buttons"><button type="submit" class="btn btn-primary">💾 Simpan</button> <button type="button" class="btn btn-secondary" onclick="closeModal('userModal')">Batal</button>
      </div>
@@ -1068,32 +1107,16 @@
     let settings = {};
     let allProducts = [];
 
-    // Demo users
-    const DEMO_USERS = [
-      { id: '1', fullName: 'Administrator', username: 'admin', password: 'admin123', role: 'admin' },
-      { id: '2', fullName: 'Kasir 1', username: 'kasir', password: 'kasir123', role: 'member' }
+    // Initialize users hardcoded
+    users = [
+      { id: 'user-1', fullName: 'Administrator', username: 'admin', password: 'admin123', role: 'admin' },
+      { id: 'user-2', fullName: 'Kasir 1', username: 'kasir', password: 'kasir123', role: 'member' }
     ];
 
     // Initialize
     window.addEventListener('DOMContentLoaded', () => {
-      loadUsersFromStorage();
       checkAutoLogin();
     });
-
-    // Load users from localStorage or use demo
-    function loadUsersFromStorage() {
-      const stored = localStorage.getItem('kasirUsers');
-      if (stored) {
-        users = JSON.parse(stored);
-      } else {
-        users = [...DEMO_USERS];
-        saveUsersToStorage();
-      }
-    }
-
-    function saveUsersToStorage() {
-      localStorage.setItem('kasirUsers', JSON.stringify(users));
-    }
 
     function checkAutoLogin() {
       const stored = localStorage.getItem('currentUser');
@@ -1110,7 +1133,7 @@
       document.querySelector(`input[value="${role}"]`).checked = true;
     }
 
-    function handleLogin(event) {
+    async function handleLogin(event) {
       event.preventDefault();
 
       const username = document.getElementById('username').value.trim();
@@ -1197,7 +1220,7 @@
       document.getElementById('mainApp').style.display = 'block';
 
       document.getElementById('userName').textContent = currentUser.fullName;
-      document.getElementById('userRole').textContent = currentUser.role === 'admin' ? 'Administrator' : 'Member';
+      document.getElementById('userRole').textContent = currentUser.role === 'admin' ? 'Administrator' : 'Member (Kasir)';
       document.getElementById('userAvatar').textContent = currentUser.role === 'admin' ? '👨‍💼' : '👤';
 
       setupRoleAccess();
@@ -1331,8 +1354,8 @@
       if (products.length === 0) {
         container.innerHTML = `
           <div class="empty-state">
-            <h3>Belum ada Barang</h3>
-            <p>Barang akan muncul di sini</p>
+            <h3>Belum ada produk</h3>
+            <p>Produk akan muncul di sini</p>
           </div>
         `;
         return;
@@ -1380,7 +1403,7 @@
     function addToCart(productId) {
       const product = products.find(p => p.id === productId);
       if (!product || product.stock <= 0) {
-        showAlert('Stok Barang habis!', 'danger');
+        showAlert('Stok produk habis!', 'danger');
         return;
       }
 
@@ -1417,7 +1440,7 @@
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
             </svg>
             <h3>Keranjang Kosong</h3>
-            <p>Pilih barang untuk memulai transaksi</p>
+            <p>Pilih produk untuk memulai transaksi</p>
           </div>
         `;
         summaryContainer.style.display = 'none';
@@ -1676,7 +1699,7 @@
       updateProductStats();
       
       if (displayProducts.length === 0) {
-        container.innerHTML = `<div class="empty-state"><h3>Tidak ada barang ditemukan</h3></div>`;
+        container.innerHTML = `<div class="empty-state"><h3>Tidak ada produk ditemukan</h3></div>`;
         return;
       }
 
@@ -1686,7 +1709,7 @@
             <thead style="position: sticky; top: 0; background: #f8f9fa; z-index: 10;">
               <tr>
                 <th>Kode</th>
-                <th>Nama Barang</th>
+                <th>Nama Produk</th>
                 <th>Kategori</th>
                 <th>Harga</th>
                 <th>Stok</th>
@@ -1733,7 +1756,7 @@
     }
 
     function showAddProductModal() {
-      document.getElementById('productModalTitle').textContent = 'Tambah Barang';
+      document.getElementById('productModalTitle').textContent = 'Tambah Produk';
       document.getElementById('productForm').reset();
       document.getElementById('productId').value = '';
       openModal('productModal');
@@ -1743,7 +1766,7 @@
       const product = products.find(p => p.id === id);
       if (!product) return;
 
-      document.getElementById('productModalTitle').textContent = 'Edit Barang';
+      document.getElementById('productModalTitle').textContent = 'Edit Produk';
       document.getElementById('productId').value = product.id;
       document.getElementById('productCode').value = product.code;
       document.getElementById('productName').value = product.name;
@@ -1771,7 +1794,7 @@
       await apiPost(action, product);
 
       closeModal('productModal');
-      showAlert(`Barang berhasil ${id ? 'diupdate' : 'ditambahkan'}!`, 'success');
+      showAlert(`Produk berhasil ${id ? 'diupdate' : 'ditambahkan'}!`, 'success');
 
       setTimeout(() => loadProducts(), 500);
     }
@@ -1794,8 +1817,8 @@
       
       deleteConfirm.innerHTML = `
         <div style="font-size: 3em; margin-bottom: 15px;">🗑️</div>
-        <h3 style="color: #495057; margin-bottom: 10px;">Hapus Barang?</h3>
-        <p style="color: #6c757d; margin-bottom: 20px;">Barang ini akan dihapus permanen</p>
+        <h3 style="color: #495057; margin-bottom: 10px;">Hapus Produk?</h3>
+        <p style="color: #6c757d; margin-bottom: 20px;">Produk ini akan dihapus permanen</p>
         <div style="display: flex; gap: 10px; justify-content: center;">
           <button onclick="confirmDeleteProduct('${id}')" class="btn btn-danger">Ya, Hapus</button>
           <button onclick="this.closest('div').remove()" class="btn btn-secondary">Batal</button>
@@ -1811,7 +1834,7 @@
       const confirmDiv = document.querySelector('div[style*="position: fixed"]');
       if (confirmDiv) confirmDiv.remove();
       
-      showAlert('Barang berhasil dihapus!', 'success');
+      showAlert('Produk berhasil dihapus!', 'success');
       
       setTimeout(() => loadProducts(), 500);
     }
@@ -1960,11 +1983,11 @@
         </div>
         <div class="stat-card" style="background: linear-gradient(135deg, #28a745 0%, #20c997 100%);">
           <h3>${paidCount}</h3>
-          <p>✓ PAID</p>
+          <p>✅ PAID</p>
         </div>
         <div class="stat-card" style="background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);">
           <h3>${unpaidCount}</h3>
-          <p>�� UNPAID</p>
+          <p>❌ UNPAID</p>
         </div>
       `;
     }
@@ -1998,7 +2021,7 @@
           <table>
             <thead style="position: sticky; top: 0; background: #f8f9fa; z-index: 10;">
               <tr>
-                <th>Member</th>
+                <th>Pelanggan</th>
                 <th>Total</th>
                 <th>Type</th>
                 <th>Status</th>
@@ -2019,7 +2042,7 @@
                   </td>
                   <td id="status-${t.id}">
                     <span class="badge ${t.status === 'PAID' ? 'badge-success' : 'badge-danger'}">
-                      ${t.status === 'PAID' ? '✓ PAID' : '✗ UNPAID'}
+                      ${t.status === 'PAID' ? '✅ PAID' : '❌ UNPAID'}
                     </span>
                   </td>
                   <td>
@@ -2035,7 +2058,7 @@
                         <input type="checkbox" id="check-${t.id}" onchange="markAsPaid('${t.id}')" style="width: 20px; height: 20px; cursor: pointer; margin: 0;" title="Tandai Lunas">
                         <span style="margin-left: 5px; font-size: 0.9em; color: #28a745; font-weight: 600;">Lunas</span>
                       </label>
-                    ` : '<span style="color: #28a745; font-weight: 600;">✓ Lunas</span>'}
+                    ` : '<span style="color: #28a745; font-weight: 600;">✅ Lunas</span>'}
                     <button class="btn btn-primary" style="padding: 6px 12px; font-size: 0.9em;" onclick="viewTransactionDetail('${t.id}')">👁️</button>
                     <button class="btn btn-danger" style="padding: 6px 12px; font-size: 0.9em;" onclick="deleteTransaction('${t.id}')">🗑️</button>
                   </td>
@@ -2173,7 +2196,7 @@
       
       if (confirmDiv) confirmDiv.remove();
       
-      showAlert('✓ Status berhasil diubah menjadi PAID!', 'success');
+      showAlert('✅ Status berhasil diubah menjadi PAID!', 'success');
       
       // Reload transactions to get updated data
       setTimeout(() => loadTransactions(), 500);
@@ -2237,7 +2260,7 @@
       openModal('userModal');
     }
 
-    function saveUser(event) {
+    async function saveUser(event) {
       event.preventDefault();
 
       const id = document.getElementById('userId').value;
@@ -2249,17 +2272,19 @@
         role: document.getElementById('userRoleSelect').value
       };
 
+      const action = id ? 'updateUser' : 'addUser';
+      await apiPost(action, user);
+
       if (id) {
         const index = users.findIndex(u => u.id === id);
-        users[index] = user;
+        if (index !== -1) users[index] = user;
       } else {
         users.push(user);
       }
 
-      saveUsersToStorage();
       closeModal('userModal');
-      renderUserTable();
       showAlert(`User berhasil ${id ? 'diupdate' : 'ditambahkan'}!`, 'success');
+      renderUserTable();
     }
 
     function deleteUser(id) {
@@ -2291,15 +2316,14 @@
       document.body.appendChild(deleteConfirm);
     }
 
-    function confirmDeleteUser(id) {
+    async function confirmDeleteUser(id) {
       users = users.filter(u => u.id !== id);
-      saveUsersToStorage();
-      renderUserTable();
       
       const confirmDiv = document.querySelector('div[style*="position: fixed"]');
       if (confirmDiv) confirmDiv.remove();
       
       showAlert('User berhasil dihapus!', 'success');
+      renderUserTable();
     }
 
     function switchTab(tabName) {
@@ -2314,7 +2338,9 @@
       document.getElementById(`tab-${tabName}`).classList.add('active');
       event.target.classList.add('active');
 
-      if (tabName === 'users') renderUserTable();
+      if (tabName === 'users') {
+        renderUserTable();
+      }
       if (tabName === 'produk') loadProducts();
       if (tabName === 'kategori') loadCategories();
       if (tabName === 'transaksi') loadTransactions();
@@ -2353,5 +2379,5 @@
       }
     }
   </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9c6f554ca6efa045',t:'MTc2OTkyNjcyNC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9c6ff613938ca045',t:'MTc2OTkzMzMxMC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
