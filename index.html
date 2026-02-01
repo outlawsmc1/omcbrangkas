@@ -1197,7 +1197,7 @@
       document.getElementById('mainApp').style.display = 'block';
 
       document.getElementById('userName').textContent = currentUser.fullName;
-      document.getElementById('userRole').textContent = currentUser.role === 'admin' ? 'Administrator' : 'Member (Kasir)';
+      document.getElementById('userRole').textContent = currentUser.role === 'admin' ? 'Administrator' : 'Member';
       document.getElementById('userAvatar').textContent = currentUser.role === 'admin' ? '👨‍💼' : '👤';
 
       setupRoleAccess();
