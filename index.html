@@ -922,7 +922,7 @@
         </div>
         <div class="form-group" style="margin-top: 20px;"><label>Nama Pelanggan <span style="color: red;">*</span></label> <input type="text" id="customerName" class="form-control" placeholder="Nama pelanggan (wajib diisi)" required>
         </div>
-        <div class="form-group"><label>Type Pembayaran <span style="color: red;">*</span></label> <select id="paymentType" class="form-control" required> <option value="CASH">💵 CASH</option>  </select>
+        <div class="form-group"><label>Type Pembayaran <span style="color: red;">*</span></label> <select id="paymentType" class="form-control" required> <option value="TRANSFER">💵 TRANSFER</option>  </select>
         </div>
         <div class="form-group"><label style="display: flex; justify-content: space-between; align-items: center;"> <span>Jumlah Bayar</span> <label style="display: flex; align-items: center; gap: 8px; font-weight: normal; cursor: pointer;"> <input type="checkbox" id="exactPayment" onchange="toggleExactPayment()" style="width: auto; cursor: pointer;"> <span>Uang Pas</span> </label> </label> <input type="number" id="paymentAmount" class="form-control" placeholder="0" oninput="calculateChange()">
         </div>
@@ -1593,7 +1593,7 @@
       cart = [];
       document.getElementById('paymentAmount').value = '';
       document.getElementById('customerName').value = '';
-      document.getElementById('paymentType').value = 'CASH';
+      document.getElementById('paymentType').value = 'TRANSFER';
       document.getElementById('exactPayment').checked = false;
       document.getElementById('paymentAmount').disabled = false;
       document.getElementById('changeDisplay').style.display = 'none';
@@ -1617,7 +1617,7 @@
             <p><strong>Tanggal:</strong> ${transaction.date} ${transaction.time}</p>
             <p><strong>Kasir:</strong> ${transaction.cashier}</p>
             <p><strong>Pelanggan:</strong> ${transaction.customerName}</p>
-            <p><strong>Type:</strong> ${transaction.type === 'PAYLATER' ? '🕐 PAYLATER' : '💵 CASH'}</p>
+            <p><strong>Type:</strong> ${transaction.type === 'PAYLATER' ? '🕐 PAYLATER' : '💵 TRANSFER'}</p>
           </div>
           <div class="receipt-items">
             <div style="border-bottom: 2px dashed #000; padding-bottom: 5px; margin-bottom: 10px;">
@@ -2016,7 +2016,7 @@
                   <td><strong>Rp ${Number(t.total).toLocaleString('id-ID')}</strong></td>
                   <td>
                     <span class="badge ${t.type === 'PAYLATER' ? 'badge-warning' : 'badge-success'}">
-                      ${t.type === 'PAYLATER' ? '🕐 PAYLATER' : '💵 CASH'}
+                      ${t.type === 'PAYLATER' ? '🕐 PAYLATER' : '💵 TRANSFER'}
                     </span>
                   </td>
                   <td id="status-${t.id}">
