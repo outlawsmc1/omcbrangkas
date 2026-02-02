@@ -915,19 +915,19 @@
        </div>
        <div id="cartSummary" style="display: none;">
         <div class="cart-total">
-         <div class="cart-total-row"><span>Subtotal:</span> <span id="subtotal">Rp 0</span>
+         <div class="cart-total-row"><span>Subtotal:</span> <span id="subtotal">$ 0</span>
          </div>
-         <div class="cart-total-row grand"><span>TOTAL:</span> <span id="grandTotal">Rp 0</span>
+         <div class="cart-total-row grand"><span>TOTAL:</span> <span id="grandTotal">$ 0</span>
          </div>
         </div>
         <div class="form-group" style="margin-top: 20px;"><label>Nama Pelanggan <span style="color: red;">*</span></label> <input type="text" id="customerName" class="form-control" placeholder="Nama pelanggan (wajib diisi)" required>
         </div>
-        <div class="form-group"><label>Type Pembayaran <span style="color: red;">*</span></label> <select id="paymentType" class="form-control" required> <option value="TRANSFER">💵 TRANSFER</option>  </select>
+        <div class="form-group"><label>Type Pembayaran <span style="color: red;">*</span></label> <select id="paymentType" class="form-control" required> <option value="CASH">💵 CASH</option> <option value="PAYLATER">🕐 PAYLATER</option> </select>
         </div>
         <div class="form-group"><label style="display: flex; justify-content: space-between; align-items: center;"> <span>Jumlah Bayar</span> <label style="display: flex; align-items: center; gap: 8px; font-weight: normal; cursor: pointer;"> <input type="checkbox" id="exactPayment" onchange="toggleExactPayment()" style="width: auto; cursor: pointer;"> <span>Uang Pas</span> </label> </label> <input type="number" id="paymentAmount" class="form-control" placeholder="0" oninput="calculateChange()">
         </div>
         <div id="changeDisplay" style="display: none; margin: 20px 0;">
-         <div class="alert alert-success"><strong>Kembalian: <span id="changeAmount">Rp 0</span></strong>
+         <div class="alert alert-success"><strong>Kembalian: <span id="changeAmount">$ 0</span></strong>
          </div>
         </div><button class="btn btn-success" style="width: 100%; padding: 15px; font-size: 1.2em;" onclick="processTransaction()"> ✅ Proses Transaksi </button> <button class="btn btn-danger" style="width: 100%; margin-top: 10px;" onclick="clearCart()"> 🗑️ Kosongkan Keranjang </button>
        </div>
@@ -944,7 +944,7 @@
        <p>Total Barang</p>
       </div>
       <div class="stat-card" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
-       <h3 id="statTotalAssets">Rp 0</h3>
+       <h3 id="statTotalAssets">$ 0</h3>
        <p>Total Aset (Harga × Stok)</p>
       </div>
      </div>
@@ -976,7 +976,7 @@
        <p>Total Transaksi</p>
       </div>
       <div class="stat-card">
-       <h3 id="statRevenue">Rp 0</h3>
+       <h3 id="statRevenue">$ 0</h3>
        <p>Total Pendapatan</p>
       </div>
       <div class="stat-card">
@@ -1015,7 +1015,7 @@
      </div>
      <div class="form-group"><label>Kategori</label> <select id="productCategory" class="form-control" required> <option value="">Pilih kategori...</option> </select>
      </div>
-     <div class="form-group"><label>Harga (Rp)</label> <input type="number" id="productPrice" class="form-control" required min="0">
+     <div class="form-group"><label>Harga ($)</label> <input type="number" id="productPrice" class="form-control" required min="0">
      </div>
      <div class="form-group"><label>Stok</label> <input type="number" id="productStock" class="form-control" required min="0">
      </div>
@@ -1080,7 +1080,7 @@
 
     // Initialize users hardcoded
     users = [
-      { id: 'user-1', fullName: 'Admin OMC', username: 'admin', password: 'outlawsmc', role: 'admin' },
+      { id: 'user-1', fullName: 'Admin OMC ', username: 'admin', password: 'admin123', role: 'admin' },
       { id: 'user-2', fullName: 'Member OMC', username: 'member', password: 'member123', role: 'member' }
     ];
 
@@ -1341,7 +1341,7 @@
           <div style="font-size: 3em; margin-bottom: 10px;">📦</div>
           <h3>${p.name}</h3>
           <p style="color: #6c757d; font-size: 0.9em;">${p.code}</p>
-          <div class="price">Rp ${Number(p.price).toLocaleString('id-ID')}</div>
+          <div class="price">$ ${Number(p.price).toLocaleString('en-US')}</div>
           <div class="stock ${p.stock < 10 ? 'low' : ''}">Stok: ${p.stock}</div>
         </div>
       `).join('');
@@ -1422,7 +1422,7 @@
         <div class="cart-item">
           <div class="cart-item-info">
             <h4>${item.name}</h4>
-            <p>${item.code} - Rp ${Number(item.price).toLocaleString('id-ID')}</p>
+            <p>${item.code} - $ ${Number(item.price).toLocaleString('en-US')}</p>
           </div>
           <div class="cart-item-qty">
             <button class="qty-btn" onclick="updateCartQty('${item.id}', -1)">-</button>
@@ -1506,8 +1506,8 @@
 
     function updateCartTotal() {
       const total = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
-      document.getElementById('subtotal').textContent = `Rp ${total.toLocaleString('id-ID')}`;
-      document.getElementById('grandTotal').textContent = `Rp ${total.toLocaleString('id-ID')}`;
+      document.getElementById('subtotal').textContent = `$ ${total.toLocaleString('en-US')}`;
+      document.getElementById('grandTotal').textContent = `$ ${total.toLocaleString('en-US')}`;
     }
 
     function toggleExactPayment() {
@@ -1534,7 +1534,7 @@
 
       if (payment >= total && payment > 0) {
         changeDisplay.style.display = 'block';
-        changeAmount.textContent = `Rp ${change.toLocaleString('id-ID')}`;
+        changeAmount.textContent = `$ ${change.toLocaleString('en-US')}`;
       } else {
         changeDisplay.style.display = 'none';
       }
@@ -1593,7 +1593,7 @@
       cart = [];
       document.getElementById('paymentAmount').value = '';
       document.getElementById('customerName').value = '';
-      document.getElementById('paymentType').value = 'TRANSFER';
+      document.getElementById('paymentType').value = 'CASH';
       document.getElementById('exactPayment').checked = false;
       document.getElementById('paymentAmount').disabled = false;
       document.getElementById('changeDisplay').style.display = 'none';
@@ -1617,7 +1617,7 @@
             <p><strong>Tanggal:</strong> ${transaction.date} ${transaction.time}</p>
             <p><strong>Kasir:</strong> ${transaction.cashier}</p>
             <p><strong>Pelanggan:</strong> ${transaction.customerName}</p>
-            <p><strong>Type:</strong> ${transaction.type === 'PAYLATER' ? '🕐 PAYLATER' : '💵 TRANSFER'}</p>
+            <p><strong>Type:</strong> ${transaction.type === 'PAYLATER' ? '🕐 PAYLATER' : '💵 CASH'}</p>
           </div>
           <div class="receipt-items">
             <div style="border-bottom: 2px dashed #000; padding-bottom: 5px; margin-bottom: 10px;">
@@ -1627,10 +1627,10 @@
               <div class="receipt-item">
                 <div>
                   <div><strong>${item.name}</strong></div>
-                  <div style="font-size: 0.9em;">${item.qty} x Rp ${Number(item.price).toLocaleString('id-ID')}</div>
+                  <div style="font-size: 0.9em;">${item.qty} x $ ${Number(item.price).toLocaleString('en-US')}</div>
                 </div>
                 <div style="text-align: right;">
-                  <strong>Rp ${(item.qty * item.price).toLocaleString('id-ID')}</strong>
+                  <strong>$ ${(item.qty * item.price).toLocaleString('en-US')}</strong>
                 </div>
               </div>
             `).join('')}
@@ -1638,15 +1638,15 @@
           <div class="receipt-total">
             <div class="receipt-item">
               <span>TOTAL:</span>
-              <strong>Rp ${Number(transaction.total).toLocaleString('id-ID')}</strong>
+              <strong>$ ${Number(transaction.total).toLocaleString('en-US')}</strong>
             </div>
             <div class="receipt-item">
               <span>BAYAR:</span>
-              <strong>Rp ${Number(transaction.payment).toLocaleString('id-ID')}</strong>
+              <strong>$ ${Number(transaction.payment).toLocaleString('en-US')}</strong>
             </div>
             <div class="receipt-item">
               <span>KEMBALI:</span>
-              <strong>Rp ${Number(transaction.change).toLocaleString('id-ID')}</strong>
+              <strong>$ ${Number(transaction.change).toLocaleString('en-US')}</strong>
             </div>
           </div>
         </div>
@@ -1662,7 +1662,7 @@
       const totalAssets = products.reduce((sum, p) => sum + (Number(p.price) * Number(p.stock)), 0);
 
       document.getElementById('statTotalProducts').textContent = totalProducts;
-      document.getElementById('statTotalAssets').textContent = `Rp ${totalAssets.toLocaleString('id-ID')}`;
+      document.getElementById('statTotalAssets').textContent = `$ ${totalAssets.toLocaleString('en-US')}`;
     }
 
     function renderProductTable() {
@@ -1695,7 +1695,7 @@
                   <td>${p.code}</td>
                   <td>${p.name}</td>
                   <td>${p.category}</td>
-                  <td>Rp ${Number(p.price).toLocaleString('id-ID')}</td>
+                  <td>$ ${Number(p.price).toLocaleString('en-US')}</td>
                   <td><span class="badge ${p.stock < 10 ? 'badge-danger' : 'badge-success'}">${p.stock}</span></td>
                   <td>
                     <button class="btn btn-primary" style="padding: 6px 12px; font-size: 0.9em;" onclick="editProduct('${p.id}')">✏️</button>
@@ -1957,7 +1957,7 @@
           <p>Total Transaksi</p>
         </div>
         <div class="stat-card">
-          <h3>Rp ${totalRevenue.toLocaleString('id-ID')}</h3>
+          <h3>$ ${totalRevenue.toLocaleString('en-US')}</h3>
           <p>Total Pendapatan (PAID)</p>
         </div>
         <div class="stat-card" style="background: linear-gradient(135deg, #28a745 0%, #20c997 100%);">
@@ -2013,10 +2013,10 @@
               ${sortedTransactions.map(t => `
                 <tr id="tr-${t.id}">
                   <td>${t.customerName}</td>
-                  <td><strong>Rp ${Number(t.total).toLocaleString('id-ID')}</strong></td>
+                  <td><strong>$ ${Number(t.total).toLocaleString('en-US')}</strong></td>
                   <td>
                     <span class="badge ${t.type === 'PAYLATER' ? 'badge-warning' : 'badge-success'}">
-                      ${t.type === 'PAYLATER' ? '🕐 PAYLATER' : '💵 TRANSFER'}
+                      ${t.type === 'PAYLATER' ? '🕐 PAYLATER' : '💵 CASH'}
                     </span>
                   </td>
                   <td id="status-${t.id}">
@@ -2038,7 +2038,7 @@
                         <span style="margin-left: 5px; font-size: 0.9em; color: #28a745; font-weight: 600;">Lunas</span>
                       </label>
                     ` : '<span style="color: #28a745; font-weight: 600;">✅ Lunas</span>'}
-                    <button class="btn btn-primary" style="padding: 6px 12px; font-size: 0.9em;" onclick="viewTransactionDetail('${t.id}')">👁️</button>
+                    <button class="btn btn-primary" style="padding: 6px 12px; font-size: 0.9em;" onclick="viewTransactionDetail('${t.id}')">��️</button>
                     <button class="btn btn-danger" style="padding: 6px 12px; font-size: 0.9em;" onclick="deleteTransaction('${t.id}')">🗑️</button>
                   </td>
                 </tr>
@@ -2124,7 +2124,7 @@
         <h3 style="color: #495057; margin-bottom: 10px;">Tandai Sebagai PAID?</h3>
         <p style="color: #6c757d; margin-bottom: 20px;">
           <strong>${transaction.customerName}</strong><br>
-          Total: Rp ${Number(transaction.total).toLocaleString('id-ID')}
+          Total: $ ${Number(transaction.total).toLocaleString('en-US')}
         </p>
         <div style="display: flex; gap: 10px; justify-content: center;">
           <button onclick="confirmMarkAsPaid('${id}')" class="btn btn-success">Ya, Tandai PAID</button>
@@ -2353,5 +2353,5 @@
       }
     }
   </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9c702d4bc2a58b16',t:'MTc2OTkzNTU3Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9c759321a274ccce',t:'MTc2OTk5MjE3Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
